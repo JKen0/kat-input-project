@@ -2,6 +2,11 @@ import KATData.FetchKATData as FetchKAT
 import datetime
 import csv
 import keyboard
+import numpy as np
+
+# TO-DO: CHANGE PARAMETERS SINNCE THEY WILL CHANGE
+KATGATE_REFERENCE_POS = np.array([-1, -1])
+
 
 def save_data_csv(data):
     # Prompt the user for a filename
@@ -20,7 +25,7 @@ def save_data_csv(data):
             writer.writerow(row)
 
 
-kat_config = FetchKAT.FetchKATData(-1, -1)
+kat_config = FetchKAT.FetchKATData(KATGATE_REFERENCE_POS[0], KATGATE_REFERENCE_POS[1])
 rot_data = []
 
 
