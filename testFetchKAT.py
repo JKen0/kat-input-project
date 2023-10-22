@@ -6,6 +6,8 @@ import numpy as np
 
 # TO-DO: CHANGE PARAMETERS SINNCE THEY WILL CHANGE
 KATGATE_REFERENCE_POS = np.array([-1, -1])
+LF_ROTATION_INITIAL = np.array([2, 12])
+RF_ROTATION_INITIAL = np.array([4, 13])
 
 
 def save_data_csv(data):

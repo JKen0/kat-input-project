@@ -2,12 +2,13 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
 import RotationMaps.RotationToPosition13 as rtp13
+import RotationMaps.RotationToPosition5 as rtp5
 import KATData.FetchKATData as FetchKAT
 
 # TO-DO: CHANGE PARAMETERS SINNCE THEY WILL CHANGE
-KATGATE_REFERENCE_POS = np.array([-1, -1])
+KATGATE_REFERENCE_POS = np.array([1442, 390])
 LF_ROTATION_INITIAL = np.array([2, 12])
-RF_ROTATION_INITIAL = np.array([2, 12])
+RF_ROTATION_INITIAL = np.array([4, 13])
 UPDATE_TIME = 60/20
 
 # STATIC INITIAL VALUES
@@ -24,8 +25,10 @@ fig, ax = plt.subplots()
 kat_config = FetchKAT.FetchKATData(KATGATE_REFERENCE_POS[0], KATGATE_REFERENCE_POS[1])
 
 # IMPORT CONVERT ROTATION TO POSITION ALGORITHM CLASS
-left_foot_rot = rtp13.RotationToPosition13(LF_ROTATION_INITIAL[0], LF_ROTATION_INITIAL[1])
-right_foot_rot = rtp13.RotationToPosition13(RF_ROTATION_INITIAL[0], RF_ROTATION_INITIAL[1])
+left_foot_rot = rtp5.RotationToPosition5(LF_ROTATION_INITIAL[0], LF_ROTATION_INITIAL[1])
+right_foot_rot = rtp5.RotationToPosition5(RF_ROTATION_INITIAL[0], RF_ROTATION_INITIAL[1])
+left_foot_rot.updateKeypoints()
+right_foot_rot.updateKeypoints()
 
 # This function is called periodically from FuncAnimation
 def animate(i):
